@@ -16,12 +16,14 @@ use Dbfx\LaravelStrapi\LaravelStrapi;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\BlogController::class, 'home']);
+//Route::get('/', [\App\Http\Controllers\BlogController::class, 'home']);
+
+Route::get('/', function () {
+    return view('app');
+});
 
 Route::get('/test', function () {
     $strapi = new LaravelStrapi();
-    // dd($strapi);
-    // dd($strapi->collection('blogs'));
     return $blogs = $strapi->collection('blogs');
 });
 
